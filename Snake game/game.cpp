@@ -70,15 +70,19 @@ void Input(){
 	{
 		switch (_getch())
 		{
-		case 'a':dir = LEFT;
+		case 'a':
+			if(dir!=RIGHT)
+			dir = LEFT;
 			break;
-		case 'd':dir = RIGHT;
+			
+		case 'd':if (dir != LEFT)dir = RIGHT;
 			break;
-		case 'w':dir = UP;
+			
+		case 'w':if (dir != DOWN)dir = UP;
 			break;
 		case 'x':gameOver=true;
 			break;
-		case 's':dir = DOWN;
+		case 's':if (dir != UP)dir = DOWN;
 			break;
 
 		for (size_t i = 0; i < width; i++)
